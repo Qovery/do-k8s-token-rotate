@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: k8s-token-rotate
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Replace
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: k8s-token-rotate
+              image: {{ .Values.image.repository }}
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              env:
+                - name:
+          restartPolicy: OnFailure

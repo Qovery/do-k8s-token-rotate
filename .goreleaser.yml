@@ -1,0 +1,17 @@
+builds:
+  - main: main.go
+    binary: do-k8s-token-rotate
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+checksum:
+  name_template: 'checksums.txt'
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'

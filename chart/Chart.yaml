@@ -1,0 +1,6 @@
+apiVersion: v2
+name: k8s-token-rotate
+description: Rotate Kubernetes DO token and store it on space
+type: application
+version: 0.1.0
+appVersion: 0.1.0
