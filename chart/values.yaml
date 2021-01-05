@@ -1,18 +1,25 @@
 image:
-  repository: qoveryrd/engine
+  repository: qoveryrd/do-k8s-token-rotate
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: "v0.1.0"
 
-imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-# define Digital Ocean Kubernetes cluster name to rotate key
-clusterName: ""
-spaceName: ""
-
 labels:
+  app: k8s-token-rotate
 
+schedule: "0 12 * * */6"
+
+environmentVariables:
+  DO_API_TOKEN: ""
+  SPACES_KEY_ACCESS: ""
+  SPACES_SECRET_KEY: ""
+  SPACES_BUCKET: ""
+  SPACES_REGION: ""
+  SPACES_FILENAME: ""
+  K8S_MAX_EXPIRY_TOKEN: "561600"
+  K8S_CLUSTER_ID: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -23,27 +30,10 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-podAnnotations: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+resources:
+  limits:
+    cpu: 10m
+    memory: 64Mi
+  requests:
+    cpu: 10m
+    memory: 64Mi
