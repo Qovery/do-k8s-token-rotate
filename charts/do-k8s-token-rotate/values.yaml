@@ -1,7 +1,7 @@
 image:
   repository: qoveryrd/do-k8s-token-rotate
   pullPolicy: IfNotPresent
-  tag: "v0.1.1"
+  tag: "0.1.2"
 
 nameOverride: ""
 fullnameOverride: ""
@@ -9,7 +9,7 @@ fullnameOverride: ""
 labels:
   app: k8s-token-rotate
 
-schedule: "0 12 * * */6"
+schedule: "0 12 * * */1"
 
 environmentVariables:
   DO_API_TOKEN: ""
