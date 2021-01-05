@@ -1,9 +1,20 @@
 apiVersion: v1
 entries:
+  do-k8s-token-rotate:
+  - apiVersion: v2
+    appVersion: 0.1.3
+    created: "2021-01-05T20:25:41.592592651Z"
+    description: Rotate Kubernetes Digital Ocean token and store it on space
+    digest: aa6dab4e3bd46f84253c01b7f5bc16af5a9e469f3c0764d38aa8855f12d0c01a
+    name: do-k8s-token-rotate
+    type: application
+    urls:
+    - https://Qovery.github.io/do-k8s-token-rotate/do-k8s-token-rotate-0.1.3.tgz
+    version: 0.1.3
   k8s-token-rotate:
   - apiVersion: v2
     appVersion: 0.1.2
-    created: "2021-01-05T15:14:44.491449137Z"
+    created: "2021-01-05T20:25:41.592975854Z"
     description: Rotate Kubernetes DO token and store it on space
     digest: 6d1b041bea717e7eac66b25a0e1de9826977c8b70fa30b9d36f9e7d88636363c
     name: k8s-token-rotate
@@ -11,4 +22,4 @@ entries:
     urls:
     - https://Qovery.github.io/do-k8s-token-rotate/k8s-token-rotate-0.1.2.tgz
     version: 0.1.2
-generated: "2021-01-05T15:14:44.490791535Z"
+generated: "2021-01-05T20:25:41.591704544Z"
